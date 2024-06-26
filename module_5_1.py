@@ -19,7 +19,7 @@ class House:
 
     def go_to (self, new_floor):
         for i in range(1, new_floor + 1):
-            if new_floor <= self.numbers_of_floors:
+            if new_floor <= self.numbers_of_floors and new_floor > 0:
                 print(i)
             else:
                 print('такого этажа не существует')
