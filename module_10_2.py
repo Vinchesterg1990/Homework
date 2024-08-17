@@ -1,30 +1,37 @@
-from threading import Thread
 import time
+from threading import Thread
+from time import sleep
+
 
 class Knight(Thread):
-    def __init__(self, name, power, enemies = 100):
+    def __init__(self, name, power):
         self.Name = name
         self.power = power
-        self.enemy = enemies
         super().__init__()
 
     def run(self):
-        print(f'{self.Name}, на нас напали!')
+        enemies = 100
         count = 0
-        while self.enemy != 0:
-            self.enemy = self.enemy - self.power
-            count = count + 1
-            print(f'{self.Name} сражается {count} дней, осталось {self.enemy} воинов.')
+        print(f'{self.Name}, на нас напали!')
+        while enemies > 0:
             time.sleep(1)
-        print(f'{self.Name} одержал победу спустя {count} дней(дня)!')
+            count += 1
+            enemies -= self.power
+            if enemies > 0:
+                print(f'{self.Name} сражается {count} день(дня)..., '
+                      f'осталось {enemies} воинов.')
+            else:
+                print(f'{self.Name} одержал победу спустя {count} дней(дня)!')
+
 
 first_knight = Knight('Sir Lancelot', 10)
 second_knight = Knight("Sir Galahad", 20)
 
 first_knight.start()
+time.sleep(0.1)
 second_knight.start()
 
 first_knight.join()
 second_knight.join()
-print('Все битвы закончились')
 
+print('Все битвы окончились!')
