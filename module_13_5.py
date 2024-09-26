@@ -14,7 +14,13 @@ butt = KeyboardButton(text = 'Расчитать')
 butt_2 = KeyboardButton(text='Информация')
 keyb.add(butt)
 keyb.add(butt_2)
-var = keyb.resize_keyboard
+start_menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='Расчитать'),
+         KeyboardButton(text='Информация')
+         ]
+    ], resize_keyboard=True
+)
 class UserState (StatesGroup):
     age = State()
     growth = State()
@@ -22,7 +28,7 @@ class UserState (StatesGroup):
 
 @dp.message_handler(commands='start')
 async def start(message):
-    await message.answer ('Привет! Я бот помогающий твоему здоровью.', reply_markup=keyb)
+    await message.answer ('Привет! Я бот помогающий твоему здоровью.', reply_markup=start_menu)
 
 @dp.message_handler(text = 'Расчитать')
 async def set_age(message):
