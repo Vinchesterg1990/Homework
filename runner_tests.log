@@ -1,0 +1,10 @@
+2024-09-27 10:51:38,138 | WARNING |  Неверный тип данных для имени объекта Runner
+Traceback (most recent call last):
+  File "F:\��������\�������\pythonProject1\.venv\Homework\module_12\test_12_4.py", line 25, in test_run
+    raise TypeError(f'Имя может быть толко строковым значением, передано <{type(some_runner.name).__name__}>')
+TypeError: Имя может быть толко строковым значением, передано <int>
+2024-09-27 10:51:38,139 | WARNING | Неверная скорость для Барсик
+Traceback (most recent call last):
+  File "F:\��������\�������\pythonProject1\.venv\Homework\module_12\test_12_4.py", line 15, in test_walk
+    raise ValueError(f'Скорость может быть только положительным значением, текущее значение = {some_runner.speed}')
+ValueError: Скорость может быть только положительным значением, текущее значение = -10
