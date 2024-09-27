@@ -8,13 +8,13 @@ def introspection(obj):
     return info
 
 # Интроспекция числа
-number_info = introspection(42)
+number_info = introspection(50)
 print(number_info)
 
 # # Интроспекция строки
-# string_info = introspection('Hello, World!')
+# string_info = introspection('Привет')
 # print(string_info)
 #
 # # Интроспекция списка
-# list_info = introspection(['1', 2, 3, 4.0])
+# list_info = introspection(['hello', 45, 5, 8])
 # print(list_info)
